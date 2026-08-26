@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WOTO Safety — Admin Portal</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+    :root {
+      --primary: #4F4A86;
+      --primary-deep: #1A1836;
+      --primary-card: #29264D;
+      --lavender-soft: #E8E6F4;
+      --bg-dark: #0F0E1E;
+      --text-light: #F3F1F8;
+      --text-muted: #A09DD4;
+      --green: #3BA77C;
+      --coral: #E45867;
+      --glass: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.09);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(155deg, var(--bg-dark) 0%, #171530 50%, var(--primary-deep) 100%);
+      color: var(--text-light);
+      min-height: 100vh;
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    /* ═══════════════════ LOGIN CARD ═══════════════════ */
+    .login-wrapper {
+      min-height: 75vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .login-card {
+      width: 100%;
+      max-width: 440px;
+      background: rgba(41, 38, 77, 0.7);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      padding: 40px 32px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
+      animation: loginFadeIn 0.4s ease forwards;
+    }
+
+    @keyframes loginFadeIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .login-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .login-logo {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 16px;
+      display: block;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 8px 24px rgba(79, 74, 134, 0.4);
+    }
+
+    .login-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 6px;
+    }
+
+    .login-subtitle {
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--lavender-soft);
+      margin-bottom: 8px;
+    }
+
+    .input-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .form-input {
+      width: 100%;
+      background: rgba(15, 14, 30, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      padding: 13px 16px;
+      color: white;
+      font-size: 14.5px;
+      font-family: inherit;
+      outline: none;
+      transition: all 0.25s ease;
+    }
+
+    .form-input:focus {
+      border-color: #7B75C4;
+      background: rgba(15, 14, 30, 0.8);
+      box-shadow: 0 0 0 4px rgba(123, 117, 196, 0.2);
+    }
+
+    .pwd-toggle {
+      position: absolute;
+      right: 14px;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 14px;
+      padding: 4px;
+      display: flex;
+      align-items: center;
+    }
+
+    .pwd-toggle:hover {
+      color: white;
+    }
+
+    .btn-login {
+      width: 100%;
+      background: linear-gradient(135deg, #4F4A86 0%, #6E68B5 100%);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 14px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      box-shadow: 0 8px 24px rgba(79, 74, 134, 0.4);
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-login:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(79, 74, 134, 0.6);
+      background: linear-gradient(135deg, #595396 0%, #7B75C4 100%);
+    }
+
+    .btn-login:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .login-error {
+      background: rgba(228, 88, 103, 0.15);
+      border: 1px solid rgba(228, 88, 103, 0.3);
+      color: #FFA5B0;
+      font-size: 13.5px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      margin-bottom: 18px;
+      display: none;
+    }
+
+    .back-home-link {
+      display: inline-block;
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .back-home-link:hover {
+      color: white;
+      text-decoration: underline;
+    }
+
+    /* ═══════════════════ DASHBOARD ═══════════════════ */
+    #dashboardContainer {
+      display: none;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+      border-bottom: 1px solid var(--glass-border);
+      padding-bottom: 24px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .logo-text {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: white;
+      letter-spacing: -0.3px;
+    }
+
+    .logo-text span {
+      color: var(--text-muted);
+      font-weight: 400;
+      font-size: 13px;
+      display: block;
+      letter-spacing: 0.5px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-btn {
+      background: var(--glass);
+      border: 1px solid var(--glass-border);
+      color: var(--text-light);
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 13.5px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .nav-btn.logout {
+      background: rgba(228, 88, 103, 0.12);
+      border-color: rgba(228, 88, 103, 0.25);
+      color: #FFA5B0;
+    }
+
+    .nav-btn.logout:hover {
+      background: rgba(228, 88, 103, 0.25);
+      border-color: rgba(228, 88, 103, 0.4);
+      color: white;
+    }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .tab-btn {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--glass-border);
+      color: var(--text-muted);
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tab-btn:hover {
+      color: var(--text-light);
+      background: var(--glass);
+    }
+
+    .tab-btn.active {
+      background: var(--primary);
+      border-color: rgba(255, 255, 255, 0.15);
+      color: white;
+      box-shadow: 0 4px 20px rgba(79, 74, 134, 0.4);
+    }
+
+    .tab-badge {
+      font-size: 11px;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 2px 8px;
+      border-radius: 20px;
+      color: white;
+    }
+
+    /* Panels */
+    .panel {
+      display: none;
+      animation: fadeIn 0.4s ease forwards;
+    }
+
+    .panel.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Grid & Cards */
+    .card-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .item-card {
+      background: var(--primary-card);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      padding: 24px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .item-card:hover {
+      border-color: rgba(79, 74, 134, 0.5);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .item-title-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .item-name {
+      font-size: 18px;
+      font-weight: 700;
+      color: white;
+    }
+
+    .badge {
+      font-size: 11.5px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 8px;
+    }
+
+    .badge-primary {
+      background: rgba(79, 74, 134, 0.25);
+      border: 1px solid rgba(79, 74, 134, 0.4);
+      color: #C3C0EC;
+    }
+
+    .badge-secondary {
+      background: rgba(228, 88, 103, 0.12);
+      border: 1px solid rgba(228, 88, 103, 0.25);
+      color: var(--coral);
+    }
+
+    .badge-success {
+      background: rgba(59, 167, 124, 0.12);
+      border: 1px solid rgba(59, 167, 124, 0.25);
+      color: var(--green);
+    }
+
+    .item-meta {
+      display: flex;
+      gap: 24px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .item-body {
+      background: rgba(0, 0, 0, 0.15);
+      border-radius: 10px;
+      padding: 16px;
+      font-size: 14.5px;
+      color: #D2CFEF;
+      margin-bottom: 16px;
+      white-space: pre-wrap;
+    }
+
+    .body-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .item-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--glass-border);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn-action:hover {
+      background: var(--primary);
+      border-color: rgba(255, 255, 255, 0.15);
+      transform: translateY(-1px);
+    }
+
+    .btn-action.download {
+      background: var(--green);
+      border-color: rgba(59, 167, 124, 0.2);
+    }
+
+    .btn-action.download:hover {
+      background: #46BA8B;
+    }
+
+    /* Empty State */
+    .empty-state {
+      background: var(--primary-card);
+      border: 1px dashed var(--glass-border);
+      border-radius: 16px;
+      padding: 60px 20px;
+      text-align: center;
+      color: var(--text-muted);
+    }
+
+    .empty-icon {
+      font-size: 48px;
+      margin-bottom: 16px;
+    }
+
+    .empty-text {
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    /* Date display */
+    .time-stamp {
+      font-size: 12px;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.05);
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      body { padding: 20px 10px; }
+      .header { flex-direction: column; gap: 16px; align-items: flex-start; }
+      .item-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .item-meta { gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════ LOGIN VIEW ═══════════════════ -->
+  <div id="loginContainer" class="login-wrapper">
+    <div class="login-card">
+      <div class="login-header">
+        <img src="logo.png" alt="WOTO Safety" class="login-logo">
+        <h1 class="login-title">Admin Portal</h1>
+        <p class="login-subtitle">Sign in with authorized administrator credentials</p>
+      </div>
+
+      <div id="loginError" class="login-error"></div>
+
+      <form id="loginForm" onsubmit="handleLogin(event)">
+        <div class="form-group">
+          <label class="form-label" for="usernameInput">Username</label>
+          <div class="input-wrap">
+            <input type="text" id="usernameInput" class="form-input" placeholder="admin" required autocomplete="username">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="passwordInput">Password</label>
+          <div class="input-wrap">
+            <input type="password" id="passwordInput" class="form-input" placeholder="••••••••" required autocomplete="current-password">
+            <button type="button" class="pwd-toggle" onclick="togglePasswordVisibility()" aria-label="Toggle password visibility">👁️</button>
+          </div>
+        </div>
+
+        <button type="submit" id="loginBtn" class="btn-login">
+          <span>🔒 Sign In</span>
+        </button>
+      </form>
+
+      <div style="text-align: center;">
+        <a href="/" class="back-home-link">← Return to Public Website</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ DASHBOARD VIEW ═══════════════════ -->
+  <div id="dashboardContainer" class="container">
+    <!-- Header -->
+    <header class="header">
+      <a href="/" class="logo">
+        <img src="logo.png" alt="WOTO Logo" class="logo-icon">
+        <div class="logo-text">WOTO Safety<span>Admin Dashboard</span></div>
+      </a>
+      <div class="header-actions">
+        <a href="/" class="nav-btn" target="_blank">🌐 View Site</a>
+        <button class="nav-btn logout" onclick="handleLogout()">🚪 Logout</button>
+      </div>
+    </header>
+
+    <!-- Tabs Menu -->
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab('applications')">
+        📁 Applications <span class="tab-badge" id="appCount">0</span>
+      </button>
+      <button class="tab-btn" onclick="switchTab('messages')">
+        ✉️ Contact Messages <span class="tab-badge" id="msgCount">0</span>
+      </button>
+    </div>
+
+    <!-- Job Applications Panel -->
+    <div id="applicationsPanel" class="panel active">
+      <div class="card-list" id="applicationsList">
+        <div class="empty-state">
+          <div class="empty-icon">⏳</div>
+          <div class="empty-text">Loading applications...</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Messages Panel -->
+    <div id="messagesPanel" class="panel">
+      <div class="card-list" id="messagesList">
+        <div class="empty-state">
+          <div class="empty-icon">⏳</div>
+          <div class="empty-text">Loading messages...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const AUTH_TOKEN_KEY = 'woto_admin_token';
+    let appData = { applications: [], messages: [] };
+
+    // Toggle password visibility
+    function togglePasswordVisibility() {
+      const pwdInput = document.getElementById('passwordInput');
+      pwdInput.type = pwdInput.type === 'password' ? 'text' : 'password';
+    }
+
+    // Handle Login Form Submission
+    async function handleLogin(e) {
+      e.preventDefault();
+      const username = document.getElementById('usernameInput').value.trim();
+      const password = document.getElementById('passwordInput').value;
+      const errorBox = document.getElementById('loginError');
+      const submitBtn = document.getElementById('loginBtn');
+
+      errorBox.style.display = 'none';
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span>Verifying...</span>';
+
+      try {
+        const response = await fetch('/api/admin/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, password })
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data.success) {
+          sessionStorage.setItem(AUTH_TOKEN_KEY, data.token);
+          showDashboard();
+          fetchDashboardData();
+        } else {
+          errorBox.textContent = data.error || 'Invalid credentials. Please try again.';
+          errorBox.style.display = 'block';
+        }
+      } catch (err) {
+        errorBox.textContent = 'Server connection error. Please make sure the backend server is running.';
+        errorBox.style.display = 'block';
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<span>🔒 Sign In</span>';
+      }
+    }
+
+    // Handle Logout
+    async function handleLogout() {
+      const token = sessionStorage.getItem(AUTH_TOKEN_KEY);
+      if (token) {
+        try {
+          await fetch('/api/admin/logout', {
+            method: 'POST',
+            headers: { 'Authorization': `Bearer ${token}` }
+          });
+        } catch (e) {
+          // ignore
+        }
+      }
+      sessionStorage.removeItem(AUTH_TOKEN_KEY);
+      showLogin();
+    }
+
+    function showDashboard() {
+      document.getElementById('loginContainer').style.display = 'none';
+      document.getElementById('dashboardContainer').style.display = 'block';
+    }
+
+    function showLogin() {
+      document.getElementById('loginContainer').style.display = 'flex';
+      document.getElementById('dashboardContainer').style.display = 'none';
+      document.getElementById('passwordInput').value = '';
+    }
+
+    // Switch between dashboard tabs
+    function switchTab(tab) {
+      const buttons = document.querySelectorAll('.tab-btn');
+      buttons.forEach(btn => {
+        if (btn.textContent.toLowerCase().includes(tab)) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      const panels = document.querySelectorAll('.panel');
+      panels.forEach(p => p.classList.remove('active'));
+
+      if (tab === 'applications') {
+        document.getElementById('applicationsPanel').classList.add('active');
+      } else {
+        document.getElementById('messagesPanel').classList.add('active');
+      }
+    }
+
+    // Fetch submissions from Protected Backend API
+    async function fetchDashboardData() {
+      const token = sessionStorage.getItem(AUTH_TOKEN_KEY);
+      if (!token) {
+        showLogin();
+        return;
+      }
+
+      try {
+        const response = await fetch('/api/admin/data', {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+
+        if (response.status === 401) {
+          sessionStorage.removeItem(AUTH_TOKEN_KEY);
+          showLogin();
+          const errorBox = document.getElementById('loginError');
+          errorBox.textContent = 'Session expired. Please log in again.';
+          errorBox.style.display = 'block';
+          return;
+        }
+
+        if (!response.ok) throw new Error('Failed to fetch dashboard data');
+        const resJson = await response.json();
+        
+        if (resJson.success) {
+          appData.applications = resJson.applications || [];
+          appData.messages = resJson.messages || [];
+          renderDashboard();
+        } else {
+          showErrorState('API error: ' + (resJson.error || 'Unknown'));
+        }
+      } catch (err) {
+        console.error(err);
+        showErrorState('Failed to connect to backend API. Please make sure the server is running.');
+      }
+    }
+
+    function renderDashboard() {
+      const token = sessionStorage.getItem(AUTH_TOKEN_KEY);
+
+      // Set Counts
+      document.getElementById('appCount').textContent = appData.applications.length;
+      document.getElementById('msgCount').textContent = appData.messages.length;
+
+      // Render Applications
+      const appList = document.getElementById('applicationsList');
+      if (appData.applications.length === 0) {
+        appList.innerHTML = `
+          <div class="empty-state">
+            <div class="empty-icon">📂</div>
+            <div class="empty-text">No job applications submitted yet.</div>
+          </div>
+        `;
+      } else {
+        appList.innerHTML = appData.applications.map(app => `
+          <div class="item-card">
+            <div class="item-header">
+              <div class="item-title-group">
+                <span class="item-name">${escapeHTML(app.name)}</span>
+                <span class="badge badge-primary">${escapeHTML(app.position)}</span>
+                ${app.city ? `<span class="badge badge-success">${escapeHTML(app.city)}</span>` : ''}
+              </div>
+              <span class="time-stamp">${formatDate(app.timestamp)}</span>
+            </div>
+            
+            <div class="item-meta">
+              <div class="meta-item">📧 ${escapeHTML(app.email)}</div>
+              <div class="meta-item">📞 ${escapeHTML(app.phone)}</div>
+              ${app.education ? `<div class="meta-item">🎓 ${escapeHTML(app.education)}</div>` : ''}
+              ${app.portfolio ? `<div class="meta-item">🔗 <a href="${escapeHTML(app.portfolio)}" target="_blank" style="color:var(--text-muted);">${escapeHTML(app.portfolio)}</a></div>` : ''}
+            </div>
+
+            ${app.skills ? `
+              <div style="margin-bottom:12px;">
+                <div class="body-label">Skills</div>
+                <div style="font-size:13px; color:#D2CFEF;">${escapeHTML(app.skills)}</div>
+              </div>
+            ` : ''}
+
+            ${app.experience ? `
+              <div style="margin-bottom:12px;">
+                <div class="body-label">Experience Overview</div>
+                <div style="font-size:13.5px; color:#D2CFEF; white-space:pre-wrap;">${escapeHTML(app.experience)}</div>
+              </div>
+            ` : ''}
+
+            <div class="item-body">
+              <div class="body-label">Why join WOTO?</div>
+              <div>${escapeHTML(app.why)}</div>
+            </div>
+
+            <div class="item-actions">
+              ${app.resume ? `
+                <a href="/api/admin/resume/${encodeURIComponent(app.resume.filename)}?token=${encodeURIComponent(token)}" class="btn-action download" download="${escapeHTML(app.resume.originalName)}">
+                  📥 Download Resume (${escapeHTML(app.resume.originalName)})
+                </a>
+              ` : `
+                <span style="font-size:12px; color:var(--coral); font-style:italic;">No resume uploaded</span>
+              `}
+              <a href="mailto:${escapeHTML(app.email)}?subject=Your Application to WOTO Safety" class="btn-action">
+                ✉️ Reply by Email
+              </a>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      // Render Messages
+      const msgList = document.getElementById('messagesList');
+      if (appData.messages.length === 0) {
+        msgList.innerHTML = `
+          <div class="empty-state">
+            <div class="empty-icon">✉️</div>
+            <div class="empty-text">No contact messages received yet.</div>
+          </div>
+        `;
+      } else {
+        msgList.innerHTML = appData.messages.map(msg => `
+          <div class="item-card">
+            <div class="item-header">
+              <div class="item-title-group">
+                <span class="item-name">${escapeHTML(msg.name)}</span>
+                <span class="badge badge-secondary">${escapeHTML(msg.subject)}</span>
+              </div>
+              <span class="time-stamp">${formatDate(msg.timestamp)}</span>
+            </div>
+
+            <div class="item-meta">
+              <div class="meta-item">📧 ${escapeHTML(msg.email)}</div>
+            </div>
+
+            <div class="item-body">
+              <div class="body-label">Message Content</div>
+              <div>${escapeHTML(msg.message)}</div>
+            </div>
+
+            <div class="item-actions">
+              <a href="mailto:${escapeHTML(msg.email)}?subject=Re: ${escapeHTML(msg.subject)}" class="btn-action">
+                ✉️ Reply by Email
+              </a>
+            </div>
+          </div>
+        `).join('');
+      }
+    }
+
+    function showErrorState(message) {
+      const errorHTML = `
+        <div class="empty-state" style="border-color: var(--coral);">
+          <div class="empty-icon">⚠️</div>
+          <div class="empty-text" style="color: var(--coral);">${escapeHTML(message)}</div>
+        </div>
+      `;
+      document.getElementById('applicationsList').innerHTML = errorHTML;
+      document.getElementById('messagesList').innerHTML = errorHTML;
+    }
+
+    function formatDate(isoString) {
+      try {
+        const d = new Date(isoString);
+        return d.toLocaleDateString() + ' ' + d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      } catch (e) {
+        return isoString;
+      }
+    }
+
+    function escapeHTML(str) {
+      if (!str) return '';
+      return str.replace(/[&<>'"]/g, 
+        tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
+      );
+    }
+
+    // Auto-verify session on startup
+    window.addEventListener('DOMContentLoaded', async () => {
+      const token = sessionStorage.getItem(AUTH_TOKEN_KEY);
+      if (!token) {
+        showLogin();
+        return;
+      }
+
+      try {
+        const response = await fetch('/api/admin/verify', {
+          headers: { 'Authorization': `Bearer ${token}` }
+        });
+        const data = await response.json();
+        if (response.ok && data.success) {
+          showDashboard();
+          fetchDashboardData();
+        } else {
+          sessionStorage.removeItem(AUTH_TOKEN_KEY);
+          showLogin();
+        }
+      } catch (e) {
+        showLogin();
+      }
+    });
+  </script>
+</body>
+</html>
