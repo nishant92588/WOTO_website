@@ -5,6 +5,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 const path = require('path');
 const fs = require('fs');
+const os = require('os');
 const crypto = require('crypto');
 
 const app = express();
@@ -34,9 +35,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Ensure directories exist
-const UPLOADS_DIR = path.join(__dirname, 'uploads');
-const DATA_DIR = path.join(__dirname, 'data');
+// Ensure directories exist (handling serverless / read-only filesystem environments)
+const isServerless = process.env.VERCEL === '1' || process.env.AWS_LAMBDA_FUNCTION_NAME;
+const UPLOADS_DIR = isServerless ? path.join(os.tmpdir(), 'uploads') : path.join(__dirname, 'uploads');
+const DATA_DIR = isServerless ? path.join(os.tmpdir(), 'data') : path.join(__dirname, 'data');
 if (!fs.existsSync(UPLOADS_DIR)) fs.mkdirSync(UPLOADS_DIR, { recursive: true });
 if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
 
@@ -297,7 +299,7 @@ app.use((err, req, res, next) => {
   next();
 });
 
-// Start Server
+// Start Server locally or when run directly
 app.listen(PORT, () => {
   console.log(`===================================================`);
   console.log(`  WOTO Safety Backend Running at: http://localhost:${PORT}`);
@@ -305,3 +307,5 @@ app.listen(PORT, () => {
   console.log(`  Admin Username: ${ADMIN_USERNAME}`);
   console.log(`===================================================`);
 });
+
+module.exports = app;
