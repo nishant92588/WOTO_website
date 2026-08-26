@@ -300,12 +300,14 @@ app.use((err, req, res, next) => {
 });
 
 // Start Server locally or when run directly
-app.listen(PORT, () => {
-  console.log(`===================================================`);
-  console.log(`  WOTO Safety Backend Running at: http://localhost:${PORT}`);
-  console.log(`  Admin Dashboard Available at: http://localhost:${PORT}/admin`);
-  console.log(`  Admin Username: ${ADMIN_USERNAME}`);
-  console.log(`===================================================`);
-});
+if (require.main === module || (!process.env.VERCEL && !process.env.AWS_LAMBDA_FUNCTION_NAME)) {
+  app.listen(PORT, () => {
+    console.log(`===================================================`);
+    console.log(`  WOTO Safety Backend Running at: http://localhost:${PORT}`);
+    console.log(`  Admin Dashboard Available at: http://localhost:${PORT}/admin`);
+    console.log(`  Admin Username: ${ADMIN_USERNAME}`);
+    console.log(`===================================================`);
+  });
+}
 
 module.exports = app;
