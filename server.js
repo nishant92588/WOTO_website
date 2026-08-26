@@ -124,11 +124,15 @@ const requireAdminAuth = (req, res, next) => {
 };
 
 // Serve static frontend files (index.html, styles.css, script.js, images)
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(__dirname));
 
 // Route: Redirect /admin to admin.html
 app.get('/admin', (req, res) => {
-  res.sendFile(path.join(__dirname, 'admin.html'));
+  const adminPath = fs.existsSync(path.join(__dirname, 'public', 'admin.html'))
+    ? path.join(__dirname, 'public', 'admin.html')
+    : path.join(__dirname, 'admin.html');
+  res.sendFile(adminPath);
 });
 
 // ==========================================
@@ -283,7 +287,10 @@ app.post('/api/apply', upload.single('resumeFile'), (req, res) => {
 
 // Fallback Route to serve index.html for undefined frontend routes
 app.use((req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  const indexPath = fs.existsSync(path.join(__dirname, 'public', 'index.html'))
+    ? path.join(__dirname, 'public', 'index.html')
+    : path.join(__dirname, 'index.html');
+  res.sendFile(indexPath);
 });
 
 // Global error handler for multer file uploads

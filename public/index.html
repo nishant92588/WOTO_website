@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WOTO Safety — Safety, connected when it matters most.</title>
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="stylesheet" href="styles.css?v=1.0.5">
+</head>
+<body>
+
+<!-- ═══════════════════ NAVBAR ═══════════════════ -->
+<nav class="nav" id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <img src="logo.png" alt="WOTO Logo" class="nav-logo-icon" style="border-radius: 50%; object-fit: cover;">
+      <div class="nav-logo-text">WOTO Safety</div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About WOTO</a></li>
+      <li><a href="#app">Safety App</a></li>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#careers">Careers</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#careers" class="nav-cta">Join WOTO</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMobile()">About WOTO</a>
+  <a href="#app" onclick="closeMobile()">Safety App</a>
+  <a href="#how" onclick="closeMobile()">How It Works</a>
+  <a href="#careers" onclick="closeMobile()">Careers</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+  <a href="#careers" class="nav-cta-mobile" onclick="closeMobile()">Join WOTO →</a>
+</div>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <!-- Left: Text -->
+    <div class="hero-left">
+      <div class="hero-badge reveal">
+        <span class="hero-badge-dot"></span>
+        Now Recruiting — Join Our Founding Team
+      </div>
+      <h1 class="hero-title reveal">
+        <span class="hero-title-accent">WOTO</span><br>Safety.
+      </h1>
+      <p class="hero-subtitle-brand reveal reveal-delay-1">"Your safety our priority"</p>
+      <div class="hero-ctas reveal reveal-delay-2">
+        <a href="#app" class="btn-primary">Explore WOTO →</a>
+      </div>
+    </div>
+
+    <!-- Right: Chip Visual -->
+    <div class="hero-visual reveal reveal-delay-2">
+      <div class="chip-wrapper">
+        <!-- Orbital rings -->
+        <div class="orbit-ring orbit-ring-1"></div>
+        <div class="orbit-ring orbit-ring-2"></div>
+        <div class="orbit-ring orbit-ring-3"></div>
+
+        <!-- Main chip -->
+        <div class="chip-body">
+          <div class="chip-pins chip-pins-left">
+            <div class="chip-pin"></div>
+            <div class="chip-pin"></div>
+            <div class="chip-pin"></div>
+            <div class="chip-pin"></div>
+          </div>
+          <div class="chip-pins chip-pins-right">
+            <div class="chip-pin"></div>
+            <div class="chip-pin"></div>
+            <div class="chip-pin"></div>
+            <div class="chip-pin"></div>
+          </div>
+          <div class="chip-center">
+            <div class="chip-logo-text">WOTO</div>
+            <div class="chip-sub">Safety Chip</div>
+            <div class="chip-dot-indicator"></div>
+          </div>
+        </div>
+
+        <!-- Floating callouts -->
+        <div class="chip-callout callout-top-left">
+          <span class="callout-icon">📡</span>
+          <div>
+            <div class="callout-label">Wireless</div>
+            <div class="callout-sub">Connectivity</div>
+          </div>
+        </div>
+        <div class="chip-callout callout-top-right">
+          <span class="callout-icon">📍</span>
+          <div>
+            <div class="callout-label">Location</div>
+            <div class="callout-sub">Capability</div>
+          </div>
+        </div>
+        <div class="chip-callout callout-bottom-left">
+          <span class="callout-icon">🔋</span>
+          <div>
+            <div class="callout-label">Low Power</div>
+            <div class="callout-sub">Design</div>
+          </div>
+        </div>
+        <div class="chip-callout callout-bottom-right">
+          <span class="callout-icon">🚨</span>
+          <div>
+            <div class="callout-label">SOS Alert</div>
+            <div class="callout-sub">Activation</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ ABOUT ═══════════════════ -->
+<section class="section about" id="about">
+  <div class="section-inner">
+    <span class="section-tag reveal">About WOTO</span>
+    <h2 class="section-title reveal">Safety that responds <br>as fast as emergencies happen.</h2>
+    <p class="section-desc reveal reveal-delay-1">
+      Existing emergency systems are slow, difficult to activate under stress, and rely entirely on the person in danger to navigate complex steps. WOTO is reimagining that.
+    </p>
+
+    <div class="about-grid">
+      <!-- Problem card (dark) -->
+      <div class="about-problem reveal">
+        <div class="about-problem-title">The problem we're solving</div>
+        <p class="about-problem-text">
+          When someone is in danger, they may have only seconds to call for help. Traditional emergency calls require unlocking a phone, dialing, and communicating a location — a process that's nearly impossible under panic, physical restraint, or in situations where silence is critical.
+        </p>
+        <p class="about-problem-text" style="margin-top: 14px;">
+          Existing wearables are bulky, app-only solutions are fragmented, and general SOS devices are expensive and inaccessible. There's a clear gap between the technology available today and what people actually need.
+        </p>
+        <div class="about-stat-highlight">
+          <div class="about-stat-num">~10s</div>
+          <div class="about-stat-label">Average time to activate a traditional emergency call under stress</div>
+        </div>
+      </div>
+
+      <!-- Right cards -->
+      <div class="about-cards">
+        <div class="about-card reveal">
+          <div class="about-card-icon" style="color: var(--primary);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg></div>
+          <div class="about-card-title">WOTO's Vision</div>
+          <p class="about-card-text">A world where every person — regardless of age, technical literacy, or situation — has instant, frictionless access to safety. WOTO envisions personal safety technology that is as natural and invisible as wearing a watch.</p>
+        </div>
+        <div class="about-card reveal reveal-delay-1">
+          <div class="about-card-icon" style="color: var(--primary);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></div>
+          <div class="about-card-title">Our Mission</div>
+          <p class="about-card-text">To build the most reliable, accessible, and intelligent personal safety system in existence — combining hardware and software so that activating emergency help requires nothing more than a single action.</p>
+        </div>
+        <div class="about-card reveal reveal-delay-2">
+          <div class="about-card-icon" style="color: var(--primary);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></div>
+          <div class="about-card-title">The WOTO Approach</div>
+          <p class="about-card-text">We pair a compact hardware chip with an intelligent mobile application, creating an interconnected safety ecosystem. The chip handles the critical hardware layer. The app manages contacts, alerts, and emergency data. Together, they work when it matters most.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vision & Mission extended -->
+    <div class="vision-mission">
+      <div class="vm-card reveal" data-letter="V">
+        <div class="vm-label">Vision</div>
+        <div class="vm-title">A world where no one faces danger alone</div>
+        <p class="vm-desc">Safety should not be a privilege for the few. WOTO is building toward a future where every person, everywhere, has a trusted layer of protection that responds without hesitation.</p>
+      </div>
+      <div class="vm-card reveal reveal-delay-1" data-letter="M">
+        <div class="vm-label">Mission</div>
+        <div class="vm-title">Hardware + software, unified for emergencies</div>
+        <p class="vm-desc">We believe the next generation of personal safety requires both intelligence (software, AI) and physical reliability (hardware). WOTO builds both — and connects them seamlessly.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ APP SECTION ═══════════════════ -->
+<section class="section app-section" id="app">
+  <div class="section-inner">
+    <span class="section-tag reveal">WOTO Safety App</span>
+    <h2 class="section-title reveal">Your safety, always<br>in your pocket.</h2>
+    <p class="section-desc reveal reveal-delay-1">
+      The WOTO app is the intelligence layer of your personal safety system. It manages contacts, alerts, emergency information, and your hardware chip — all in one place.
+    </p>
+
+    <div class="app-layout">
+      <!-- Features grid -->
+      <div class="app-features">
+        <div class="app-feature reveal">
+          <div class="app-feature-icon sos"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg></div>
+          <div class="app-feature-title" style="color: #E45867;">Emergency SOS</div>
+          <p class="app-feature-desc">One-tap emergency activation triggers immediate alerts to trusted contacts and emergency protocols.</p>
+        </div>
+        <div class="app-feature reveal reveal-delay-1">
+          <div class="app-feature-icon normal"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
+          <div class="app-feature-title">Trusted Contacts</div>
+          <p class="app-feature-desc">Designate up to 5 emergency contacts who receive instant alerts with your location and situation.</p>
+        </div>
+        <div class="app-feature reveal reveal-delay-2">
+          <div class="app-feature-icon normal"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
+          <div class="app-feature-title">Live Location</div>
+          <p class="app-feature-desc">Real-time location sharing activates automatically during an emergency, with route history.</p>
+        </div>
+        <div class="app-feature reveal">
+          <div class="app-feature-icon sos"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg></div>
+          <div class="app-feature-title" style="color: #E45867;">Emergency Alerts</div>
+          <p class="app-feature-desc">Contacts receive multi-channel alerts — SMS, app notification, and in-app — ensuring the message gets through.</p>
+        </div>
+        <div class="app-feature reveal reveal-delay-1">
+          <div class="app-feature-icon normal"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
+          <div class="app-feature-title">Safety Status</div>
+          <p class="app-feature-desc">Set and share your safety status. Contacts know you're safe when it matters, and alerted when you're not.</p>
+        </div>
+        <div class="app-feature reveal reveal-delay-2">
+          <div class="app-feature-icon normal"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg></div>
+          <div class="app-feature-title">Emergency Profile</div>
+          <p class="app-feature-desc">Store medical information, blood group, allergies, and emergency contacts for first responders.</p>
+        </div>
+        <div class="app-feature reveal">
+          <div class="app-feature-icon normal"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="15" x2="23" y2="15"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="15" x2="4" y2="15"></line></svg></div>
+          <div class="app-feature-title">Hardware Integration</div>
+          <p class="app-feature-desc">Sync WOTO with low-power physical buttons or keyfobs to trigger instant SOS alerts with a single click without unlocking your phone.</p>
+        </div>
+        <div class="app-feature reveal reveal-delay-1">
+          <div class="app-feature-icon normal"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg></div>
+          <div class="app-feature-title">Data Transmission</div>
+          <p class="app-feature-desc">Critical emergency data is transmitted automatically — your profile, location, and alert — with no manual input needed.</p>
+        </div>
+      </div>
+
+      <!-- Phone mockup -->
+      <div class="phone-mockup reveal reveal-delay-2">
+        <div class="phone-outer">
+          <div class="phone-screen">
+            <div class="phone-notch"></div>
+            <div class="phone-status">
+              <span>9:41</span>
+              <span>●●●●○ 🔋87%</span>
+            </div>
+            <div class="phone-app-header">
+              <div>
+                <div class="phone-user">Good evening,</div>
+                <div class="phone-greeting">Riya S.</div>
+              </div>
+              <div class="phone-avatar">RS</div>
+            </div>
+            <!-- Chip status -->
+            <div class="phone-chip-status">
+              <div class="pcs-dot"></div>
+              <div class="pcs-label">WOTO Chip Connected</div>
+              <div class="pcs-sub">Active</div>
+            </div>
+            <!-- SOS button -->
+            <div class="phone-sos-area">
+              <div class="phone-sos-btn">SOS</div>
+              <div class="phone-sos-label">Hold 2s to activate emergency</div>
+            </div>
+            <!-- Status cards -->
+            <div class="phone-status-cards">
+              <div class="phone-status-card">
+                <div class="psc-icon">📍</div>
+                <div class="psc-label">Location</div>
+                <div class="psc-value active">Sharing</div>
+              </div>
+              <div class="phone-status-card">
+                <div class="psc-icon">🛡️</div>
+                <div class="psc-label">Status</div>
+                <div class="psc-value active">Safe</div>
+              </div>
+            </div>
+            <!-- Contacts -->
+            <div class="phone-contacts">
+              <div class="phone-contacts-title">Trusted Contacts</div>
+              <div class="phone-contact">
+                <div class="phone-contact-av" style="background:#4F4A86;">MA</div>
+                <div><div class="phone-contact-name">Mom</div><div class="phone-contact-role">Primary contact</div></div>
+              </div>
+              <div class="phone-contact">
+                <div class="phone-contact-av" style="background:#3BA77C;">RK</div>
+                <div><div class="phone-contact-name">Raj K.</div><div class="phone-contact-role">Trusted friend</div></div>
+              </div>
+              <div class="phone-contact">
+                <div class="phone-contact-av" style="background:#7B75C4;">PD</div>
+                <div><div class="phone-contact-name">Priya D.</div><div class="phone-contact-role">Emergency contact</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- Minimal WOTO Chip highlight -->
+    <div class="app-chip-banner reveal reveal-delay-2">
+      <div class="acb-content">
+        <span class="acb-badge">WOTO Accessory</span>
+        <h3 class="acb-title">The WOTO Smart Safety Button</h3>
+        <p class="acb-desc">
+          An optional, ultra-compact hardware companion that connects seamlessly to the WOTO App. Designed to be carried on keychains, loops, or hidden pockets, it lets you send silent emergency alerts with a double-click without ever taking out or unlocking your phone.
+        </p>
+        <div class="acb-features">
+          <span class="acb-feat"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px;vertical-align:middle;position:relative;top:-1px;"><rect x="1" y="6" width="18" height="12" rx="2" ry="2"></rect><line x1="23" y1="11" x2="23" y2="13"></line></svg>2-Year Battery Standby</span>
+          <span class="acb-feat"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px;vertical-align:middle;position:relative;top:-1px;"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l-7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>Discreet Keyring Design</span>
+          <span class="acb-feat"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px;vertical-align:middle;position:relative;top:-1px;"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.58 16.14a6 6 0 0 1 6.84 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>Low-Energy Bluetooth Sync</span>
+          <span class="acb-feat"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px;vertical-align:middle;position:relative;top:-1px;"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>Silent Double-Press Trigger</span>
+        </div>
+      </div>
+      <div class="acb-visual">
+        <div class="acb-chip">WOTO</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- ═══════════════════ HOW IT WORKS ═══════════════════ -->
+<section class="section how-section" id="how">
+  <div class="section-inner">
+    <span class="section-tag reveal">How It Works</span>
+    <h2 class="section-title reveal">Four steps between danger<br>and a response.</h2>
+    <p class="section-desc reveal reveal-delay-1">
+      WOTO is designed to compress the gap between an emergency and a response to the absolute minimum. Here's how the system works.
+    </p>
+
+    <div class="how-steps">
+      <div class="how-step reveal">
+        <div class="how-step-num">
+          <div class="how-step-num-text">01</div>
+          <div class="how-step-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path><line x1="12" y1="2" x2="12" y2="12"></line></svg></div>
+        </div>
+        <h3 class="how-step-title">Activate</h3>
+        <p class="how-step-desc">The user activates WOTO through the app's SOS button or the physical WOTO hardware chip — a single deliberate action.</p>
+      </div>
+      <div class="how-step reveal reveal-delay-1">
+        <div class="how-step-num">
+          <div class="how-step-num-text">02</div>
+          <div class="how-step-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.58 16.14a6 6 0 0 1 6.84 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg></div>
+        </div>
+        <h3 class="how-step-title">Connect</h3>
+        <p class="how-step-desc">The hardware chip communicates with the WOTO app and ecosystem, establishing a connection and transmitting the emergency signal.</p>
+      </div>
+      <div class="how-step reveal reveal-delay-2">
+        <div class="how-step-num">
+          <div class="how-step-num-text">03</div>
+          <div class="how-step-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></div>
+        </div>
+        <h3 class="how-step-title">Process</h3>
+        <p class="how-step-desc">Emergency information — including your location, identity, medical profile, and emergency contacts — is assembled and processed instantly.</p>
+      </div>
+      <div class="how-step reveal reveal-delay-3">
+        <div class="how-step-num">
+          <div class="how-step-num-text">04</div>
+          <div class="how-step-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div>
+        </div>
+        <h3 class="how-step-title">Respond</h3>
+        <p class="how-step-desc">Trusted contacts and the appropriate support network receive the alert, your location, and your emergency profile — and can act immediately.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ CAREERS ═══════════════════ -->
+<section class="section careers-section" id="careers">
+  <div class="section-inner">
+    <div class="careers-header">
+      <span class="section-tag reveal">Careers</span>
+      <h2 class="section-title reveal">Build the future of<br>personal safety with WOTO.</h2>
+      <p class="section-desc reveal reveal-delay-1">
+        We're assembling a founding team of builders, designers, and problem-solvers who believe safety technology can be better. If that's you, we want to hear from you.
+      </p>
+    </div>
+
+    <!-- Roles -->
+    <div class="roles-grid">
+      <div class="role-card reveal">
+        <div class="role-icon" style="color: var(--primary);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg></div>
+        <div>
+          <div class="role-name">App Developer</div>
+          <div class="role-type">Engineering · Full-time / Contract</div>
+        </div>
+      </div>
+      <div class="role-card reveal reveal-delay-1">
+        <div class="role-icon" style="color: var(--primary);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg></div>
+        <div>
+          <div class="role-name">Finance</div>
+          <div class="role-type">Business · Full-time</div>
+        </div>
+      </div>
+      <div class="role-card reveal reveal-delay-2">
+        <div class="role-icon" style="color: var(--primary);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="15" x2="23" y2="15"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="15" x2="4" y2="15"></line></svg></div>
+        <div>
+          <div class="role-name">Embedded / IoT Engineer</div>
+          <div class="role-type">Hardware · Full-time</div>
+        </div>
+      </div>
+      <div class="role-card reveal">
+        <div class="role-icon" style="color: var(--primary);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 14.7255 3.09032 17.1962 4.85857 19C5.03444 19.1759 5.27552 19.2597 5.51864 19.2274C6.67108 19.074 7.6892 18.3976 8.24354 17.3821C8.79788 16.3666 8.79788 15.176 8.24354 14.1605L7.9004 13.532C7.30058 12.4334 7.30058 11.0827 7.9004 9.98414L8.24354 9.35561C8.79788 8.34015 8.79788 7.14953 8.24354 6.13407C7.6892 5.11862 6.67108 4.44218 5.51864 4.28876C5.27552 4.25642 5.03444 4.34027 4.85857 4.51614C3.09032 6.31995 2 8.79069 2 11.5161C2 17.039 6.47715 21.5161 12 21.5161V22Z"></path></svg></div>
+        <div>
+          <div class="role-name">UI / UX Designer</div>
+          <div class="role-type">Design · Full-time / Freelance</div>
+        </div>
+      </div>
+      <div class="role-card reveal reveal-delay-1">
+        <div class="role-icon" style="color: var(--primary);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg></div>
+        <div>
+          <div class="role-name">Marketing</div>
+          <div class="role-type">Growth · Full-time</div>
+        </div>
+      </div>
+      <div class="role-card reveal reveal-delay-2">
+        <div class="role-icon" style="color: var(--primary);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div>
+        <div>
+          <div class="role-name">Sales</div>
+          <div class="role-type">Business · Full-time</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Application Form -->
+    <div class="app-form-wrapper reveal">
+      <h3 class="form-title">Apply to Join WOTO</h3>
+      <p class="form-desc">Fill out the form below and our team will review your application. We review every submission personally.</p>
+
+      <form onsubmit="handleFormSubmit(event)">
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label">Full Name <span class="required">*</span></label>
+            <input class="form-input" type="text" placeholder="Your full name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address <span class="required">*</span></label>
+            <input class="form-input" type="email" placeholder="you@email.com" name="email" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number <span class="required">*</span></label>
+            <input class="form-input" type="tel" placeholder="+91 XXXXX XXXXX" name="phone" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">City <span class="required">*</span></label>
+            <input class="form-input" type="text" placeholder="City, State" name="city" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Education <span class="required">*</span></label>
+            <input class="form-input" type="text" placeholder="Degree, Institution, Year" name="education" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Position Applied For <span class="required">*</span></label>
+            <select class="form-select" name="position" required>
+              <option value="" disabled selected>Select a role</option>
+              <option>App Developer</option>
+              <option>Finance</option>
+              <option>Embedded / IoT Engineer</option>
+              <option>UI / UX Designer</option>
+              <option>Marketing</option>
+              <option>Sales</option>
+            </select>
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Skills <span class="required">*</span></label>
+            <input class="form-input" type="text" placeholder="e.g. Flutter, Kotlin, Swift, Firebase, Figma..." name="skills" required>
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Experience <span class="required">*</span></label>
+            <textarea class="form-textarea" placeholder="Brief overview of your relevant experience and past work..." style="min-height:80px;" name="experience" required></textarea>
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Portfolio / GitHub / LinkedIn <span class="required">*</span></label>
+            <input class="form-input" type="url" placeholder="https://..." name="portfolio" required>
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Why do you want to join WOTO? <span class="required">*</span></label>
+            <textarea class="form-textarea" placeholder="Tell us what draws you to WOTO's mission and what you'd bring to the team..." style="min-height:120px;" name="why" required></textarea>
+          </div>
+          <div class="form-group full">
+            <label class="form-label">Resume / CV <span class="required">*</span></label>
+            <label class="form-file-label">
+              <input class="form-file" type="file" accept=".pdf,.doc,.docx" id="resumeFile" name="resumeFile" onchange="updateFileLabel(this)" required>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px; vertical-align: middle; color: var(--primary);"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+              <span id="fileLabel">Upload your resume (PDF or DOC, max 5MB) *</span>
+            </label>
+          </div>
+          <div class="form-group full">
+            <div class="form-check">
+              <input type="checkbox" id="consent" required>
+              <label for="consent">I consent to WOTO storing my information for recruitment purposes. My data will not be shared with third parties without my permission.</label>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn-submit">
+          Submit Application →
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ CONTACT ═══════════════════ -->
+<section class="section contact-section" id="contact">
+  <div class="section-inner">
+    <span class="section-tag reveal">Contact</span>
+    <h2 class="section-title reveal">Get in touch<br>with the team.</h2>
+    <p class="section-desc reveal reveal-delay-1">Whether you're a potential partner, investor, press, or just want to learn more about WOTO — we'd love to hear from you.</p>
+
+    <div class="contact-layout">
+      <!-- Contact info -->
+      <div class="contact-info reveal">
+        <div class="contact-item">
+          <div class="contact-icon" style="color: var(--primary);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div>
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-value"><a href="mailto:wotosafetyofficial@gmail.com" style="color: inherit; text-decoration: none;">wotosafetyofficial@gmail.com</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon" style="color: var(--primary);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></div>
+          <div>
+            <div class="contact-label">Phone</div>
+            <div class="contact-value"><a href="tel:+919258869338" style="color: inherit; text-decoration: none;">+91 92588 69338</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon" style="color: var(--primary);"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
+          <div>
+            <div class="contact-label">Location</div>
+            <div class="contact-value">India</div>
+          </div>
+        </div>
+
+        <!-- Social -->
+        <div>
+          <div class="contact-label" style="margin-bottom:12px;">Follow WOTO</div>
+          <div class="social-links">
+            <a href="https://x.com/WOTO_Safety" class="social-link">𝕏 Twitter</a>
+            <a href="https://www.linkedin.com/in/woto-safety-248357431" class="social-link">in LinkedIn</a>
+            <a href="https://www.instagram.com/woto_safety?igsi=N2F3emoydWgxOG1u" class="social-link">▷ Instagram</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact form -->
+      <div class="contact-form-wrapper reveal reveal-delay-1">
+        <h3 class="contact-form-title">Send us a message</h3>
+        <form class="contact-form" onsubmit="handleContactSubmit(event)">
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">Name <span class="required">*</span></label>
+              <input class="form-input" type="text" placeholder="Your name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email <span class="required">*</span></label>
+              <input class="form-input" type="email" placeholder="you@email.com" name="email" required>
+            </div>
+          </div>
+          <div class="form-group" style="margin-top:16px;">
+            <label class="form-label">Subject <span class="required">*</span></label>
+            <input class="form-input" type="text" placeholder="What's this about?" name="subject" required>
+          </div>
+          <div class="form-group" style="margin-top:16px;">
+            <label class="form-label">Message <span class="required">*</span></label>
+            <textarea class="form-textarea" style="min-height:120px;" placeholder="Your message..." name="message" required></textarea>
+          </div>
+          <button type="submit" class="btn-submit" style="margin-top:20px;">Send Message →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <a href="#" class="nav-logo" style="margin-bottom:16px;display:inline-flex;">
+          <img src="logo.png" alt="WOTO Logo" class="nav-logo-icon" style="border-radius: 50%; object-fit: cover;">
+          <div class="nav-logo-text">WOTO Safety</div>
+        </a>
+        <p class="footer-brand-desc" style="font-weight: 500; font-size: 15px; opacity: 0.85;">
+          Your safety, our priority.
+        </p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <div class="footer-col-title">Product</div>
+          <ul>
+            <li><a href="#about">About WOTO</a></li>
+            <li><a href="#app">Safety App</a></li>
+            <li><a href="#how">How It Works</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Company</div>
+          <ul>
+            <li><a href="#careers">Careers</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Investors</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Legal</div>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="#">Security</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2024 WOTO Safety. All rights reserved.</div>
+      <div class="footer-tagline">Safety, connected when it matters most.</div>
+    </div>
+  </div>
+</footer>
+
+<!-- Toast -->
+<div id="toast" style="
+  position:fixed; bottom:32px; right:32px; z-index:9999;
+  background:#29264D; color:white; padding:14px 22px;
+  border-radius:14px; font-size:14px; font-weight:500;
+  box-shadow:0 8px 32px rgba(0,0,0,0.25);
+  transform:translateY(100px); opacity:0;
+  transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);
+  display:flex; align-items:center; gap:10px;
+  border:1px solid rgba(255,255,255,0.1);
+">
+  <span id="toastIcon">✅</span>
+  <span id="toastMsg">Submitted successfully!</span>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
