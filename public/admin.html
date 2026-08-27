@@ -575,6 +575,9 @@
         <div class="logo-text">WOTO Safety<span>Admin Dashboard</span></div>
       </a>
       <div class="header-actions">
+        <div id="dbStatusBadge" style="display:inline-flex; align-items:center; gap:6px; font-size:12.5px; font-weight:600; padding:6px 12px; border-radius:8px; background:rgba(255,255,255,0.06); border:1px solid var(--glass-border);">
+          <span>⏳ Checking DB...</span>
+        </div>
         <a href="/" class="nav-btn" target="_blank">🌐 View Site</a>
         <button class="nav-btn logout" onclick="handleLogout()">🚪 Logout</button>
       </div>
@@ -738,6 +741,22 @@
         if (resJson.success) {
           appData.applications = resJson.applications || [];
           appData.messages = resJson.messages || [];
+
+          // Update DB Status Badge
+          const dbBadge = document.getElementById('dbStatusBadge');
+          if (dbBadge) {
+            if (resJson.storageType === 'mongodb') {
+              dbBadge.innerHTML = '🟢 <span style="color:#6ee7b7;">MongoDB Cloud (Permanent)</span>';
+              dbBadge.style.borderColor = 'rgba(59, 167, 124, 0.4)';
+              dbBadge.style.background = 'rgba(59, 167, 124, 0.12)';
+            } else {
+              dbBadge.innerHTML = '🟡 <span style="color:#fcd34d;">Local Storage Mode</span>';
+              dbBadge.title = 'Add MONGODB_URI to .env / Vercel Environment Variables to activate permanent cloud storage';
+              dbBadge.style.borderColor = 'rgba(245, 158, 11, 0.4)';
+              dbBadge.style.background = 'rgba(245, 158, 11, 0.12)';
+            }
+          }
+
           renderDashboard();
         } else {
           showErrorState('API error: ' + (resJson.error || 'Unknown'));
@@ -765,7 +784,14 @@
           </div>
         `;
       } else {
-        appList.innerHTML = appData.applications.map(app => `
+        appList.innerHTML = appData.applications.map(app => {
+          const hasResume = app.resume && (app.resume.filename || app.resume.url);
+          const resumeDownloadUrl = app.resume && app.resume.url
+            ? app.resume.url
+            : `/api/admin/resume/${encodeURIComponent(app.resume ? (app.resume.filename || app.id || app._id) : '')}?token=${encodeURIComponent(token)}`;
+          const resumeOriginalName = app.resume && app.resume.originalName ? app.resume.originalName : 'Resume';
+
+          return `
           <div class="item-card">
             <div class="item-header">
               <div class="item-title-group">
@@ -803,9 +829,9 @@
             </div>
 
             <div class="item-actions">
-              ${app.resume ? `
-                <a href="/api/admin/resume/${encodeURIComponent(app.resume.filename)}?token=${encodeURIComponent(token)}" class="btn-action download" download="${escapeHTML(app.resume.originalName)}">
-                  📥 Download Resume (${escapeHTML(app.resume.originalName)})
+              ${hasResume ? `
+                <a href="${escapeHTML(resumeDownloadUrl)}" target="${app.resume && app.resume.url ? '_blank' : '_self'}" class="btn-action download" download="${escapeHTML(resumeOriginalName)}">
+                  📥 Download Resume (${escapeHTML(resumeOriginalName)})
                 </a>
               ` : `
                 <span style="font-size:12px; color:var(--coral); font-style:italic;">No resume uploaded</span>
@@ -815,7 +841,8 @@
               </a>
             </div>
           </div>
-        `).join('');
+        `;
+        }).join('');
       }
 
       // Render Messages
