@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Team — WOTO Safety</title>
+<link rel="icon" type="image/png" href="logo.png">
+<link rel="stylesheet" href="styles.css?v=1.0.5">
+<link rel="stylesheet" href="team.css?v=1.0.0">
+</head>
+<body>
+
+<!-- ═══════════════════ NAVBAR ═══════════════════ -->
+<nav class="nav" id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="logo.png" alt="WOTO Logo" class="nav-logo-icon" style="border-radius: 50%; object-fit: cover;">
+      <div class="nav-logo-text">WOTO Safety</div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#about">About WOTO</a></li>
+      <li><a href="index.html#app">Safety App</a></li>
+      <li><a href="index.html#how">How It Works</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="index.html#careers">Careers</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="index.html#careers" class="nav-cta">Join WOTO</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#about">About WOTO</a>
+  <a href="index.html#app">Safety App</a>
+  <a href="index.html#how">How It Works</a>
+  <a href="team.html">Team</a>
+  <a href="index.html#careers">Careers</a>
+  <a href="index.html#contact">Contact</a>
+  <a href="index.html#careers" class="nav-cta-mobile">Join WOTO →</a>
+</div>
+
+<!-- ═══════════════════ TEAM HERO ═══════════════════ -->
+<section class="team-hero">
+  <div class="team-orbit team-orbit-1"></div>
+  <div class="team-orbit team-orbit-2"></div>
+  <div class="team-hero-content">
+    <div class="team-hero-badge">
+      <span class="team-hero-badge-dot"></span>
+      The people behind WOTO
+    </div>
+    <h1 class="team-hero-title">Meet the <span>WOTO</span> team.</h1>
+    <p class="team-hero-desc">
+      A small, founding team building the fastest way to get help when it matters most — from hardware to software to everything in between.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════ TEAM GRID ═══════════════════ -->
+<section class="section team-section">
+  <div class="section-inner">
+    <span class="section-tag">Our Team</span>
+    <h2 class="section-title">Small team. <br>Big mission.</h2>
+    <p class="section-desc">We're just getting started — here's who's building WOTO from the ground up.</p>
+
+    <div class="team-grid" id="teamGrid">
+      <!-- Cards are rendered here from teamInfo.json -->
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <a href="index.html" class="nav-logo" style="margin-bottom:16px;display:inline-flex;">
+          <img src="logo.png" alt="WOTO Logo" class="nav-logo-icon" style="border-radius: 50%; object-fit: cover;">
+          <div class="nav-logo-text">WOTO Safety</div>
+        </a>
+        <p class="footer-brand-desc" style="font-weight: 500; font-size: 15px; opacity: 0.85;">
+          Your safety, our priority.
+        </p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <div class="footer-col-title">Product</div>
+          <ul>
+            <li><a href="index.html#about">About WOTO</a></li>
+            <li><a href="index.html#app">Safety App</a></li>
+            <li><a href="index.html#how">How It Works</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Company</div>
+          <ul>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="index.html#careers">Careers</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Legal</div>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="#">Security</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2024 WOTO Safety. All rights reserved.</div>
+      <div class="footer-tagline">Safety, connected when it matters most.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="script.js"></script>
+<script src="team.js"></script>
+</body>
+</html>

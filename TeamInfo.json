@@ -1,0 +1,38 @@
+[
+  {
+    "id": "member-1",
+    "name": "Add Name Here",
+    "role": "Founder & CEO",
+    "bio": "Replace this with a short one or two line bio about this team member and what they lead at WOTO.",
+    "photo": null,
+    "linkedin": "",
+    "twitter": ""
+  },
+  {
+    "id": "member-2",
+    "name": "Add Name Here",
+    "role": "Co-Founder & CTO",
+    "bio": "Replace this with a short one or two line bio about this team member and what they lead at WOTO.",
+    "photo": null,
+    "linkedin": "",
+    "twitter": ""
+  },
+  {
+    "id": "member-3",
+    "name": "Add Name Here",
+    "role": "Hardware Lead",
+    "bio": "Replace this with a short one or two line bio about this team member and what they lead at WOTO.",
+    "photo": null,
+    "linkedin": "",
+    "twitter": ""
+  },
+  {
+    "id": "member-4",
+    "name": "Add Name Here",
+    "role": "App Developer",
+    "bio": "Replace this with a short one or two line bio about this team member and what they lead at WOTO.",
+    "photo": null,
+    "linkedin": "",
+    "twitter": ""
+  }
+]
