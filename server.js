@@ -218,6 +218,13 @@ const requireAdminAuth = (req, res, next) => {
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(__dirname));
 
+// Route: Redirect /team to team.html
+app.get('/team', (req, res) => {
+  const teamPath = fs.existsSync(path.join(__dirname, 'public', 'team.html'))
+    ? path.join(__dirname, 'public', 'team.html')
+    : path.join(__dirname, 'team.html');
+  res.sendFile(teamPath);
+});
 // Route: Redirect /admin to admin.html
 app.get('/admin', (req, res) => {
   const adminPath = fs.existsSync(path.join(__dirname, 'public', 'admin.html'))
